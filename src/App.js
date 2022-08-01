@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { history } from "./store/history";
+import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <div className="grid-container">
         <header className="row">
           <div>
@@ -22,6 +24,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomeScreen />}></Route>
             <Route path="/product/:id" element={<ProductScreen />}></Route>
+            <Route path="/cart/:id" element={<CartScreen />}></Route>
           </Routes>
         </main>
         <footer className="row center">All right reserved</footer>
