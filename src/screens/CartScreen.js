@@ -6,7 +6,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 
 export default function CartScreen(props) {
@@ -26,7 +26,7 @@ export default function CartScreen(props) {
   }, [dispatch, id, qty]);
 
   const removeFromCartHandler = (id) => {
-    // delete action
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
